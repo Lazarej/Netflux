@@ -1,0 +1,32 @@
+.section{
+  padding: 40px 60px 40px 60px;
+}
+
+.row{
+    
+}
+
+.row h3{
+    color: aliceblue;
+    margin-bottom: 20px;
+}
+
+.carousel-item{
+    height: 200px;
+    width: 200px ;
+
+}
+.item-content{
+  height: 100%;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+}
+.slick-slide > div {
+  margin: 0 10px;
+}
+.slick-list {
+  margin: 0 -10px;
+}

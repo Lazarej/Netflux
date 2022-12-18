@@ -1,48 +1,55 @@
 import { useEffect, useState } from "react";
+import Slider from "react-slick";
 import "../../../style/homepage/PosterSection.css";
 
+export default function PosterCarousel(props) {
+  const [index, setIndex] = useState(0);
+  const [setting, setSetting] = useState({
+    lazyLoad: true,
+    fade: true,
+    infinite: true,
+    speed: 1000,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 15000,
+    slidesToShow: 1,
+    adaptiveHeight: true,
+    slidesToScroll: 1,
+    cssEase: "linear",
+  });
 
-export default function PosterCarousel (props){
-    
-    const [index, setIndex] = useState(0);
+  useEffect(() => {}, []);
 
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-          if (index <= props.popularMovies.length -2 ) {
-            setIndex((index) => index + 1);
-          } else {
-            setIndex((index) => (index = 0));
-          }
-        }, 15000);
-        console.log(props)
-        return () => {
-          clearInterval(interval);
-        };
-      }, [index]);
-
-      return(
-          
-        <div
-        
-        style={{
-            backgroundSize: "cover",
-            backgroundImage: `url(
-                    https://image.tmdb.org/t/p/original/${props.popularMovies[index]?.backdrop_path})`,
-            backgroundPosition: "center top",
-          }}
-          className="poster-section">
+  return (
+    <Slider {...setting} className={"slider"}>
+      {props.popularMovies.map((popularMovie, index) => (
+        <div key={index}>
+          <div
+            style={{
+              backgroundSize: "cover",
+              backgroundImage: `url(
+                    https://image.tmdb.org/t/p/original/${popularMovie.backdrop_path})`,
+              backgroundPosition: "center top",
+            }}
+            className="poster-section"
+          >
             <div className="fade">
-            <div className="info-cont">
-                <h2 className="poster-title">{props.popularMovies[index]?.title || props.popularMovies[index]?.original_title}</h2>
+              <div className="info-cont">
+                <h2>{popularMovie.title || popularMovie.original_title}</h2>
                 <div className="info-row">
                   <button>Regarder</button>
                   <button>Ma liste</button>
                 </div>
-                <p>{props.popularMovies[index]?.overview}</p>
+                {
+                  popularMovie.overview.length < 350 ?
+                  <p>{popularMovie.overview}</p> :
+                  <p>{popularMovie.overview.substring(0,350)} ...</p>
+                }
+              </div>
             </div>
-            </div>
+          </div>
         </div>
-      )
-    
+      ))}
+    </Slider>
+  );
 }
