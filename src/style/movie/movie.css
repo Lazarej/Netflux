@@ -1,0 +1,84 @@
+
+
+.movie-banner{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+}
+
+.right{
+    position: relative;
+    width: 55%;
+    height: 100%;
+}
+
+.poster-fade{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgb(18,18,18);
+    background: linear-gradient(270deg, rgba(18,18,18,0) 29%, rgba(18,18,18,1) 100%);
+}
+
+.left{
+    width: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.content-cont{
+    margin: 15% 5% 5% 10%;
+}
+
+.content-cont h3{
+    color: rgb(217, 217, 217);
+    font-size: 4vw;
+    line-height: 4vw;
+    margin-bottom: 20px;
+}
+
+.content-cont p{
+    color: rgb(203, 203, 203);
+}
+
+.movie-row{
+    display: flex;
+    margin: 40px 0px 40px 0px ;
+}
+
+.movie-info-row{
+    display: flex;
+    margin-bottom: 50px;
+
+}
+
+.movie-info-row .runtime{
+    display: flex;
+}
+
+.movie-info-row .runtime{
+    margin-right: 5px;
+}
+
+.movie-info-row p{
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    margin: 0;
+}
+
+.banner-btn{ 
+    border: 1px solid rgb(217, 217, 217);
+    background: transparent;
+    color: rgb(217, 217, 217);
+    height: 3rem;
+    padding: 0 15px 0 15px;
+    margin-right: 20px;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.banner-btn:hover{ 
+    cursor: pointer;
+}
