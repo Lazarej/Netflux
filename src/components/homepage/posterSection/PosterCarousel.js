@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "../../../style/homepage/PosterSection.css";
 
@@ -37,7 +38,7 @@ export default function PosterCarousel(props) {
               <div className="info-cont">
                 <h2>{popularMovie.title || popularMovie.original_title}</h2>
                 <div className="info-row">
-                  <button>Regarder</button>
+                  <Link to={`/${popularMovie.id}`}><button>Regarder</button></Link>
                   <button>Ma liste</button>
                 </div>
                 {

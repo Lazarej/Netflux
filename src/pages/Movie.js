@@ -27,7 +27,6 @@ export default function Movie (){
                 loading === false ?
                 <Banner detail={state}/> : null
               }
-              <video src={``} />
         </div>
     )
 }
